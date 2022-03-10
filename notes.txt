@@ -1,0 +1,11 @@
+# Terraform commands used
+
+- terraform init
+
+
+# AWS Commands used
+- aws ec2 describe-availability-zones --region us-west-2
+
+# Useful commands used
+- cmd //c tree
+- cmd //c tree //a //f
