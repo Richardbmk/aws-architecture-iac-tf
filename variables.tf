@@ -3,11 +3,6 @@
 variable "aws_region" {
   default = "us-west-2"
 }
-
-# variable "infra_env" {
-#   default = "rickrock"
-# }
-
 variable "region" {}
 variable "vpc_cidr" {}
 variable "environment" {}

@@ -38,7 +38,9 @@
 #     description = "infrastructure environment"
 # }
 
-variable "region" {}
+variable "aws_region" {
+  default = "us-west-2"
+}
 variable "vpc_cidr" {}
 variable "environment" {}
 variable "public_subnets_cidr" {}

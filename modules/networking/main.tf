@@ -1,55 +1,5 @@
 # ------ ./modules/networking/main.tf ------
 
-# # Create a VPC for the region associated with the AZ
-# resource "aws_vpc" "vpc" {
-#     cidr_block = var.vpc_cidr
-
-#     tags = {
-#         Name = "rickdev-${var.infra_env}-vpc"
-#         Porject = "rickdev-learning"
-#         Environment = var.infra_env
-#         ManagedBy = "terraform"
-#     }
-# }
-
-# # Create 1 public subnets for each AZ within the regional VPC
-# resource "aws_subnet" "public" {
-#     for_each = var.public_subnet_numbers
-
-#     vpc_id = aws_vpc.vpc.id
-#     availability_zone =  each.key
-
-#     cidr_block = cidrsubnet(aws_vpc.vpc.cidr_block, 4, each.value)
-
-#     tags = {
-#         Name = "rickdev-${var.infra_env}-public-subnet"
-#         Porject = "rickdev-learning"
-#         Role = "public"
-#         Environment = var.infra_env
-#         ManagedBy = "terraform"
-#         Subnet = "${each.key}-${each.value}"
-#     }
-# }
-
-# # Create 1 private subnets for each AZ within the regional VPC
-# resource "aws_subnet" "private" {
-#     for_each = var.private_subnet_numbers
-
-#     vpc_id = aws_vpc.vpc.id
-#     availability_zone =  each.key
-
-#     cidr_block = cidrsubnet(aws_vpc.vpc.cidr_block, 4, each.value)
-
-#     tags = {
-#         Name = "rickdev-${var.infra_env}-public-subnet"
-#         Porject = "rickdev-learning"
-#         Role = "private"
-#         Environment = var.infra_env
-#         ManagedBy = "terraform"
-#         Subnet = "${each.key}-${each.value}"
-#     }
-# }
-
 # Description of the VPC
 resource "aws_vpc" "vpc" {
     cidr_block = "${var.vpc_cidr}"
@@ -73,23 +23,32 @@ resource "aws_internet_gateway" "ig" {
     }
 }
 
-# Elastic IP fon NAT
-resource "aws_eip" "nat_eip" {
-    vpc = true
-    depends_on = [aws_internet_gateway.ig]
-}
-
 # NAT
 resource "aws_nat_gateway" "nat" {
-    allocation_id = "${aws_eip.nat_eip.id}"
-    subnet_id = "${element(aws_subnet.public_subnet.*.id, 0)}"
+    count = "${length(var.availability_zones)}"
+    allocation_id = "${element(aws_eip.nat_eip.*.id, count.index)}"
+    subnet_id = "${element(aws_subnet.public_subnet.*.id, count.index)}"
     depends_on = [aws_internet_gateway.ig]
 
     tags = {
-        Name = "nat"
+        Name = "${var.environment}-${element(var.availability_zones, count.index)}-nat"
         Environment = "${var.environment}"
     }
 }
+
+# Elastic IP for NAT
+resource "aws_eip" "nat_eip" {
+    count = "${length(var.availability_zones)}"
+    vpc = true
+    depends_on = [aws_internet_gateway.ig]
+
+    tags = {
+        Name = "${var.environment}-${element(var.availability_zones, count.index)}-eip"
+        Environment = "${var.environment}"
+    }
+}
+
+
 
 # Public subnet
 resource "aws_subnet" "public_subnet" {
@@ -121,6 +80,7 @@ resource "aws_subnet" "private_subnet" {
 
 # Routing table for private subnet
 resource "aws_route_table" "private" {
+    count = "${length(var.availability_zones)}"
     vpc_id = "${aws_vpc.vpc.id}"
 
     tags = {
@@ -131,6 +91,7 @@ resource "aws_route_table" "private" {
 
 # Routing table for public subnet
 resource "aws_route_table" "public" {
+    count = "${length(var.availability_zones)}"
     vpc_id = "${aws_vpc.vpc.id}"
 
     tags = {
@@ -140,26 +101,31 @@ resource "aws_route_table" "public" {
 }
 
 resource "aws_route" "public_internet_gateway" {
-    route_table_id = "${aws_route_table.public.id}"
+    count = "${length(var.availability_zones)}"
+    # route_table_id = "${aws_route_table.public.id}"
+    route_table_id = "${element(aws_route_table.public.*.id, count.index)}"
     destination_cidr_block = "0.0.0.0/0"
     gateway_id = "${aws_internet_gateway.ig.id}"
 }
 
 resource "aws_route" "private_nat_gateway" {
-    route_table_id = "${aws_route_table.private.id}"
+    count = "${length(var.availability_zones)}"
+    # route_table_id = "${aws_route_table.private.id}"
+    route_table_id = "${element(aws_route_table.private.*.id, count.index)}"
     destination_cidr_block = "0.0.0.0/0"
-    nat_gateway_id = "${aws_nat_gateway.nat.id}"
+    nat_gateway_id = "${element(aws_nat_gateway.nat.*.id, count.index)}"
 }
 
 # Route table associations
 resource "aws_route_table_association" "public" {
     count = "${length(var.public_subnets_cidr)}"
     subnet_id = "${element(aws_subnet.public_subnet.*.id, count.index)}"
-    route_table_id = "${aws_route_table.public.id}"
+    # route_table_id = "${aws_route_table.public.id}"
+    route_table_id = "${element(aws_route_table.public.*.id, count.index)}"
 }
 
 resource "aws_route_table_association" "private" {
     count = "${length(var.private_subnets_cidr)}"
     subnet_id = "${element(aws_subnet.private_subnet.*.id, count.index)}"
-    route_table_id = "${aws_route_table.private.id}"
+    route_table_id = "${element(aws_route_table.private.*.id, count.index)}"
 }
