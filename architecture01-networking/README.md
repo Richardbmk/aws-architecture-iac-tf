@@ -1,6 +1,6 @@
 # AWS VPC 3-Tier Architecture
 
-<img src="/architecture01-networking/architecture01-Networking.jpeg"/>
+<img src="./architecture01-Networking.jpeg"/>
 
 ## Folder structure
 
