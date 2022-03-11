@@ -1,21 +1,21 @@
 eip = [
   {
     "address" = tostring(null)
-    "allocation_id" = "eipalloc-061529cc27dfe229e"
+    "allocation_id" = "eipalloc-02e2197c3a01add05"
     "associate_with_private_ip" = tostring(null)
-    "association_id" = "eipassoc-086be0cf827f4ef75"
+    "association_id" = ""
     "carrier_ip" = ""
     "customer_owned_ip" = ""
     "customer_owned_ipv4_pool" = ""
     "domain" = "vpc"
-    "id" = "eipalloc-061529cc27dfe229e"
+    "id" = "eipalloc-02e2197c3a01add05"
     "instance" = ""
     "network_border_group" = "us-west-2"
-    "network_interface" = "eni-04d88bd6baf7a655c"
-    "private_dns" = "ip-10-0-0-79.us-west-2.compute.internal"
-    "private_ip" = "10.0.0.79"
-    "public_dns" = "ec2-35-165-114-240.us-west-2.compute.amazonaws.com"
-    "public_ip" = "35.165.114.240"
+    "network_interface" = ""
+    "private_dns" = tostring(null)
+    "private_ip" = ""
+    "public_dns" = "ec2-100-20-77-38.us-west-2.compute.amazonaws.com"
+    "public_ip" = "100.20.77.38"
     "public_ipv4_pool" = "amazon"
     "tags" = tomap({
       "Environment" = "dev"
@@ -30,21 +30,21 @@ eip = [
   },
   {
     "address" = tostring(null)
-    "allocation_id" = "eipalloc-08ac6e9fa02cd62a7"
+    "allocation_id" = "eipalloc-0187da93435112386"
     "associate_with_private_ip" = tostring(null)
-    "association_id" = "eipassoc-0edb5638ee67b2475"
+    "association_id" = ""
     "carrier_ip" = ""
     "customer_owned_ip" = ""
     "customer_owned_ipv4_pool" = ""
     "domain" = "vpc"
-    "id" = "eipalloc-08ac6e9fa02cd62a7"
+    "id" = "eipalloc-0187da93435112386"
     "instance" = ""
     "network_border_group" = "us-west-2"
-    "network_interface" = "eni-0f74da651ceb40d6d"
-    "private_dns" = "ip-10-0-1-230.us-west-2.compute.internal"
-    "private_ip" = "10.0.1.230"
-    "public_dns" = "ec2-44-236-7-114.us-west-2.compute.amazonaws.com"
-    "public_ip" = "44.236.7.114"
+    "network_interface" = ""
+    "private_dns" = tostring(null)
+    "private_ip" = ""
+    "public_dns" = "ec2-52-12-47-199.us-west-2.compute.amazonaws.com"
+    "public_ip" = "52.12.47.199"
     "public_ipv4_pool" = "amazon"
     "tags" = tomap({
       "Environment" = "dev"
@@ -59,8 +59,8 @@ eip = [
   },
 ]
 internet-gw = {
-  "arn" = "arn:aws:ec2:us-west-2:853190002720:internet-gateway/igw-041f0233dea91b5a2"
-  "id" = "igw-041f0233dea91b5a2"
+  "arn" = "arn:aws:ec2:us-west-2:853190002720:internet-gateway/igw-0bee0bb1e269b9a31"
+  "id" = "igw-0bee0bb1e269b9a31"
   "owner_id" = "853190002720"
   "tags" = tomap({
     "Environment" = "dev"
@@ -70,17 +70,17 @@ internet-gw = {
     "Environment" = "dev"
     "Name" = "dev-igw"
   })
-  "vpc_id" = "vpc-0be0fb8c8990e7a26"
+  "vpc_id" = "vpc-04d8ec7ac84e34651"
 }
 nat_gateway = [
   {
-    "allocation_id" = "eipalloc-061529cc27dfe229e"
+    "allocation_id" = "eipalloc-02e2197c3a01add05"
     "connectivity_type" = "public"
-    "id" = "nat-09245a3f42b732501"
-    "network_interface_id" = "eni-04d88bd6baf7a655c"
-    "private_ip" = "10.0.0.79"
-    "public_ip" = "35.165.114.240"
-    "subnet_id" = "subnet-0f73397aa21a63be7"
+    "id" = "nat-0326aa714772dac73"
+    "network_interface_id" = "eni-0ab6c70f7cc502794"
+    "private_ip" = "10.0.0.85"
+    "public_ip" = "100.20.77.38"
+    "subnet_id" = "subnet-0130aa38b778403e1"
     "tags" = tomap({
       "Environment" = "dev"
       "Name" = "dev-us-west-2a-nat"
@@ -91,13 +91,13 @@ nat_gateway = [
     })
   },
   {
-    "allocation_id" = "eipalloc-08ac6e9fa02cd62a7"
+    "allocation_id" = "eipalloc-0187da93435112386"
     "connectivity_type" = "public"
-    "id" = "nat-0f6c8649cc1415d89"
-    "network_interface_id" = "eni-0f74da651ceb40d6d"
-    "private_ip" = "10.0.1.230"
-    "public_ip" = "44.236.7.114"
-    "subnet_id" = "subnet-0cef7567194096860"
+    "id" = "nat-04a21667fdb014744"
+    "network_interface_id" = "eni-04a444ffc68f1c3a2"
+    "private_ip" = "10.0.1.47"
+    "public_ip" = "52.12.47.199"
+    "subnet_id" = "subnet-0998d87b3dc5357e3"
     "tags" = tomap({
       "Environment" = "dev"
       "Name" = "dev-us-west-2b-nat"
@@ -110,7 +110,7 @@ nat_gateway = [
 ]
 private_subnet = [
   {
-    "arn" = "arn:aws:ec2:us-west-2:853190002720:subnet/subnet-047f5e7b2aed27dab"
+    "arn" = "arn:aws:ec2:us-west-2:853190002720:subnet/subnet-087d9c9799a170921"
     "assign_ipv6_address_on_creation" = false
     "availability_zone" = "us-west-2a"
     "availability_zone_id" = "usw2-az1"
@@ -119,7 +119,7 @@ private_subnet = [
     "enable_dns64" = false
     "enable_resource_name_dns_a_record_on_launch" = false
     "enable_resource_name_dns_aaaa_record_on_launch" = false
-    "id" = "subnet-047f5e7b2aed27dab"
+    "id" = "subnet-087d9c9799a170921"
     "ipv6_cidr_block" = ""
     "ipv6_cidr_block_association_id" = ""
     "ipv6_native" = false
@@ -137,10 +137,10 @@ private_subnet = [
       "Name" = "dev-us-west-2a-private-subnet"
     })
     "timeouts" = null /* object */
-    "vpc_id" = "vpc-0be0fb8c8990e7a26"
+    "vpc_id" = "vpc-04d8ec7ac84e34651"
   },
   {
-    "arn" = "arn:aws:ec2:us-west-2:853190002720:subnet/subnet-0bb87b44d5a409f93"
+    "arn" = "arn:aws:ec2:us-west-2:853190002720:subnet/subnet-095f920123865a277"
     "assign_ipv6_address_on_creation" = false
     "availability_zone" = "us-west-2b"
     "availability_zone_id" = "usw2-az2"
@@ -149,7 +149,7 @@ private_subnet = [
     "enable_dns64" = false
     "enable_resource_name_dns_a_record_on_launch" = false
     "enable_resource_name_dns_aaaa_record_on_launch" = false
-    "id" = "subnet-0bb87b44d5a409f93"
+    "id" = "subnet-095f920123865a277"
     "ipv6_cidr_block" = ""
     "ipv6_cidr_block_association_id" = ""
     "ipv6_native" = false
@@ -167,10 +167,10 @@ private_subnet = [
       "Name" = "dev-us-west-2b-private-subnet"
     })
     "timeouts" = null /* object */
-    "vpc_id" = "vpc-0be0fb8c8990e7a26"
+    "vpc_id" = "vpc-04d8ec7ac84e34651"
   },
   {
-    "arn" = "arn:aws:ec2:us-west-2:853190002720:subnet/subnet-05d5cac8a1299416c"
+    "arn" = "arn:aws:ec2:us-west-2:853190002720:subnet/subnet-0d5b7709039c76cf9"
     "assign_ipv6_address_on_creation" = false
     "availability_zone" = "us-west-2a"
     "availability_zone_id" = "usw2-az1"
@@ -179,7 +179,7 @@ private_subnet = [
     "enable_dns64" = false
     "enable_resource_name_dns_a_record_on_launch" = false
     "enable_resource_name_dns_aaaa_record_on_launch" = false
-    "id" = "subnet-05d5cac8a1299416c"
+    "id" = "subnet-0d5b7709039c76cf9"
     "ipv6_cidr_block" = ""
     "ipv6_cidr_block_association_id" = ""
     "ipv6_native" = false
@@ -197,10 +197,10 @@ private_subnet = [
       "Name" = "dev-us-west-2a-private-subnet"
     })
     "timeouts" = null /* object */
-    "vpc_id" = "vpc-0be0fb8c8990e7a26"
+    "vpc_id" = "vpc-04d8ec7ac84e34651"
   },
   {
-    "arn" = "arn:aws:ec2:us-west-2:853190002720:subnet/subnet-098e529dd9cc64b53"
+    "arn" = "arn:aws:ec2:us-west-2:853190002720:subnet/subnet-0167de7561c1951f6"
     "assign_ipv6_address_on_creation" = false
     "availability_zone" = "us-west-2b"
     "availability_zone_id" = "usw2-az2"
@@ -209,7 +209,7 @@ private_subnet = [
     "enable_dns64" = false
     "enable_resource_name_dns_a_record_on_launch" = false
     "enable_resource_name_dns_aaaa_record_on_launch" = false
-    "id" = "subnet-098e529dd9cc64b53"
+    "id" = "subnet-0167de7561c1951f6"
     "ipv6_cidr_block" = ""
     "ipv6_cidr_block_association_id" = ""
     "ipv6_native" = false
@@ -227,12 +227,12 @@ private_subnet = [
       "Name" = "dev-us-west-2b-private-subnet"
     })
     "timeouts" = null /* object */
-    "vpc_id" = "vpc-0be0fb8c8990e7a26"
+    "vpc_id" = "vpc-04d8ec7ac84e34651"
   },
 ]
 public_subnet = [
   {
-    "arn" = "arn:aws:ec2:us-west-2:853190002720:subnet/subnet-0f73397aa21a63be7"
+    "arn" = "arn:aws:ec2:us-west-2:853190002720:subnet/subnet-0130aa38b778403e1"
     "assign_ipv6_address_on_creation" = false
     "availability_zone" = "us-west-2a"
     "availability_zone_id" = "usw2-az1"
@@ -241,7 +241,7 @@ public_subnet = [
     "enable_dns64" = false
     "enable_resource_name_dns_a_record_on_launch" = false
     "enable_resource_name_dns_aaaa_record_on_launch" = false
-    "id" = "subnet-0f73397aa21a63be7"
+    "id" = "subnet-0130aa38b778403e1"
     "ipv6_cidr_block" = ""
     "ipv6_cidr_block_association_id" = ""
     "ipv6_native" = false
@@ -259,10 +259,10 @@ public_subnet = [
       "Name" = "dev-us-west-2a-public-subnet"
     })
     "timeouts" = null /* object */
-    "vpc_id" = "vpc-0be0fb8c8990e7a26"
+    "vpc_id" = "vpc-04d8ec7ac84e34651"
   },
   {
-    "arn" = "arn:aws:ec2:us-west-2:853190002720:subnet/subnet-0cef7567194096860"
+    "arn" = "arn:aws:ec2:us-west-2:853190002720:subnet/subnet-0998d87b3dc5357e3"
     "assign_ipv6_address_on_creation" = false
     "availability_zone" = "us-west-2b"
     "availability_zone_id" = "usw2-az2"
@@ -271,7 +271,7 @@ public_subnet = [
     "enable_dns64" = false
     "enable_resource_name_dns_a_record_on_launch" = false
     "enable_resource_name_dns_aaaa_record_on_launch" = false
-    "id" = "subnet-0cef7567194096860"
+    "id" = "subnet-0998d87b3dc5357e3"
     "ipv6_cidr_block" = ""
     "ipv6_cidr_block_association_id" = ""
     "ipv6_native" = false
@@ -289,32 +289,16 @@ public_subnet = [
       "Name" = "dev-us-west-2b-public-subnet"
     })
     "timeouts" = null /* object */
-    "vpc_id" = "vpc-0be0fb8c8990e7a26"
+    "vpc_id" = "vpc-04d8ec7ac84e34651"
   },
 ]
 route_table_private = [
   {
-    "arn" = "arn:aws:ec2:us-west-2:853190002720:route-table/rtb-089b78ee10f2c13b5"
-    "id" = "rtb-089b78ee10f2c13b5"
+    "arn" = "arn:aws:ec2:us-west-2:853190002720:route-table/rtb-0d52881d48f3a703e"
+    "id" = "rtb-0d52881d48f3a703e"
     "owner_id" = "853190002720"
     "propagating_vgws" = toset([])
-    "route" = toset([
-      {
-        "carrier_gateway_id" = ""
-        "cidr_block" = "0.0.0.0/0"
-        "destination_prefix_list_id" = ""
-        "egress_only_gateway_id" = ""
-        "gateway_id" = ""
-        "instance_id" = ""
-        "ipv6_cidr_block" = ""
-        "local_gateway_id" = ""
-        "nat_gateway_id" = "nat-09245a3f42b732501"
-        "network_interface_id" = ""
-        "transit_gateway_id" = ""
-        "vpc_endpoint_id" = ""
-        "vpc_peering_connection_id" = ""
-      },
-    ])
+    "route" = toset([])
     "tags" = tomap({
       "Environment" = "dev"
       "Name" = "dev-private-route-table"
@@ -324,30 +308,14 @@ route_table_private = [
       "Name" = "dev-private-route-table"
     })
     "timeouts" = null /* object */
-    "vpc_id" = "vpc-0be0fb8c8990e7a26"
+    "vpc_id" = "vpc-04d8ec7ac84e34651"
   },
   {
-    "arn" = "arn:aws:ec2:us-west-2:853190002720:route-table/rtb-0b98ece1705cb8272"
-    "id" = "rtb-0b98ece1705cb8272"
+    "arn" = "arn:aws:ec2:us-west-2:853190002720:route-table/rtb-07f189a5251203447"
+    "id" = "rtb-07f189a5251203447"
     "owner_id" = "853190002720"
     "propagating_vgws" = toset([])
-    "route" = toset([
-      {
-        "carrier_gateway_id" = ""
-        "cidr_block" = "0.0.0.0/0"
-        "destination_prefix_list_id" = ""
-        "egress_only_gateway_id" = ""
-        "gateway_id" = ""
-        "instance_id" = ""
-        "ipv6_cidr_block" = ""
-        "local_gateway_id" = ""
-        "nat_gateway_id" = "nat-0f6c8649cc1415d89"
-        "network_interface_id" = ""
-        "transit_gateway_id" = ""
-        "vpc_endpoint_id" = ""
-        "vpc_peering_connection_id" = ""
-      },
-    ])
+    "route" = toset([])
     "tags" = tomap({
       "Environment" = "dev"
       "Name" = "dev-private-route-table"
@@ -357,32 +325,16 @@ route_table_private = [
       "Name" = "dev-private-route-table"
     })
     "timeouts" = null /* object */
-    "vpc_id" = "vpc-0be0fb8c8990e7a26"
+    "vpc_id" = "vpc-04d8ec7ac84e34651"
   },
 ]
 route_table_public = [
   {
-    "arn" = "arn:aws:ec2:us-west-2:853190002720:route-table/rtb-0a1db70ee63da7704"
-    "id" = "rtb-0a1db70ee63da7704"
+    "arn" = "arn:aws:ec2:us-west-2:853190002720:route-table/rtb-04a8793238fba1973"
+    "id" = "rtb-04a8793238fba1973"
     "owner_id" = "853190002720"
     "propagating_vgws" = toset([])
-    "route" = toset([
-      {
-        "carrier_gateway_id" = ""
-        "cidr_block" = "0.0.0.0/0"
-        "destination_prefix_list_id" = ""
-        "egress_only_gateway_id" = ""
-        "gateway_id" = "igw-041f0233dea91b5a2"
-        "instance_id" = ""
-        "ipv6_cidr_block" = ""
-        "local_gateway_id" = ""
-        "nat_gateway_id" = ""
-        "network_interface_id" = ""
-        "transit_gateway_id" = ""
-        "vpc_endpoint_id" = ""
-        "vpc_peering_connection_id" = ""
-      },
-    ])
+    "route" = toset([])
     "tags" = tomap({
       "Environment" = "dev"
       "Name" = "dev-public-route-table"
@@ -392,30 +344,14 @@ route_table_public = [
       "Name" = "dev-public-route-table"
     })
     "timeouts" = null /* object */
-    "vpc_id" = "vpc-0be0fb8c8990e7a26"
+    "vpc_id" = "vpc-04d8ec7ac84e34651"
   },
   {
-    "arn" = "arn:aws:ec2:us-west-2:853190002720:route-table/rtb-05b4db49bb36fc850"
-    "id" = "rtb-05b4db49bb36fc850"
+    "arn" = "arn:aws:ec2:us-west-2:853190002720:route-table/rtb-0036369566970080f"
+    "id" = "rtb-0036369566970080f"
     "owner_id" = "853190002720"
     "propagating_vgws" = toset([])
-    "route" = toset([
-      {
-        "carrier_gateway_id" = ""
-        "cidr_block" = "0.0.0.0/0"
-        "destination_prefix_list_id" = ""
-        "egress_only_gateway_id" = ""
-        "gateway_id" = "igw-041f0233dea91b5a2"
-        "instance_id" = ""
-        "ipv6_cidr_block" = ""
-        "local_gateway_id" = ""
-        "nat_gateway_id" = ""
-        "network_interface_id" = ""
-        "transit_gateway_id" = ""
-        "vpc_endpoint_id" = ""
-        "vpc_peering_connection_id" = ""
-      },
-    ])
+    "route" = toset([])
     "tags" = tomap({
       "Environment" = "dev"
       "Name" = "dev-public-route-table"
@@ -425,22 +361,22 @@ route_table_public = [
       "Name" = "dev-public-route-table"
     })
     "timeouts" = null /* object */
-    "vpc_id" = "vpc-0be0fb8c8990e7a26"
+    "vpc_id" = "vpc-04d8ec7ac84e34651"
   },
 ]
 vpc_id = {
-  "arn" = "arn:aws:ec2:us-west-2:853190002720:vpc/vpc-0be0fb8c8990e7a26"
+  "arn" = "arn:aws:ec2:us-west-2:853190002720:vpc/vpc-04d8ec7ac84e34651"
   "assign_generated_ipv6_cidr_block" = false
   "cidr_block" = "10.0.0.0/16"
-  "default_network_acl_id" = "acl-067e9b15bb7c68bb7"
-  "default_route_table_id" = "rtb-06053fb35f3aca1dc"
-  "default_security_group_id" = "sg-05ab752445f7b1cb1"
+  "default_network_acl_id" = "acl-0482215152761014e"
+  "default_route_table_id" = "rtb-097ebd83377ca000e"
+  "default_security_group_id" = "sg-0d3038e1fd373f143"
   "dhcp_options_id" = "dopt-02296aa26ae014863"
   "enable_classiclink" = false
   "enable_classiclink_dns_support" = false
   "enable_dns_hostnames" = true
   "enable_dns_support" = true
-  "id" = "vpc-0be0fb8c8990e7a26"
+  "id" = "vpc-04d8ec7ac84e34651"
   "instance_tenancy" = "default"
   "ipv4_ipam_pool_id" = tostring(null)
   "ipv4_netmask_length" = tonumber(null)
@@ -449,7 +385,7 @@ vpc_id = {
   "ipv6_cidr_block_network_border_group" = ""
   "ipv6_ipam_pool_id" = ""
   "ipv6_netmask_length" = 0
-  "main_route_table_id" = "rtb-06053fb35f3aca1dc"
+  "main_route_table_id" = "rtb-097ebd83377ca000e"
   "owner_id" = "853190002720"
   "tags" = tomap({
     "Environment" = "dev"
