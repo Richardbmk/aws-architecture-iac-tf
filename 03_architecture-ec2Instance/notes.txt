@@ -1,0 +1,28 @@
+# Terraform commands used
+
+- terraform init
+- terraform show
+- terraform state --help
+- terraform state console
+- terraform output
+- terraform console
+- terraform apply --help
+- terraform fmt 
+- terraform validate
+- terraform plan --help
+
+
+# AWS Commands used
+- aws ec2 describe-availability-zones --region us-west-2
+
+# Useful commands used
+- cmd //c tree
+- cmd //c tree //a //f
+
+
+TO DO's:
+- Design the new architecture 
+- Adapt private subnets for RDS (create subnets groups and subnets for rds)
+- Manual deployment
+- Create module for EC2 Instance
+- Create security groups
