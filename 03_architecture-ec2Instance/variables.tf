@@ -11,3 +11,7 @@ variable "private_subnets_cidr" {}
 variable "availability_zones" {}
 variable "private_db_subnets_cidr" {}
 variable "subnate_group_name" {}
+variable "access_ip" {
+  type = string
+}
+# variable "multiple_security_groups" {}
