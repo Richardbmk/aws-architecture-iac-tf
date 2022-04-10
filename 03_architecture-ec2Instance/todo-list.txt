@@ -1,0 +1,5 @@
+TODO LIST:
+
+1. Improve the VPC Outputs to be more specific
+2. Create the Security Group Modules an use it (Create All of them: private and bastion)
+3. Create the EC2 Module and use it
